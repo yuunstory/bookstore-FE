@@ -1,45 +1,15 @@
 import { styled } from 'styled-components';
 import logo from '../../assets/images/logo.png';
 import { FaSignInAlt, FaRegUser } from 'react-icons/fa';
-import InputText from './InputText';
 import { Link } from 'react-router-dom';
-
-const CATEGORY = [
-  {
-    id: null,
-    name: '전체',
-  },
-  {
-    id: 0,
-    name: '인문',
-  },
-  {
-    id: 1,
-    name: '시/에세이',
-  },
-  {
-    id: 2,
-    name: '경제/경영',
-  },
-  {
-    id: 3,
-    name: '건강',
-  },
-  {
-    id: 4,
-    name: '소설',
-  },
-  {
-    id: 5,
-    name: '역사/문화',
-  },
-  {
-    id: 6,
-    name: '요리',
-  },
-];
+import { Category } from '../../models/category.model';
+import { fetchCategory } from '../../api/category.api';
+import { useEffect, useState } from 'react';
+import { useCategory } from '../../hooks/useCategory';
 
 function Header() {
+  const { category } = useCategory();
+
   return (
     <HeaderStyle>
       <Link to="/">
@@ -50,10 +20,13 @@ function Header() {
 
       <nav className="category">
         <ul>
-          {CATEGORY.map((item) => {
+          {category.map((item) => {
+            console.log(item);
             return (
-              <li key={item.id}>
-                <Link to={item.id === null ? `/books` : `/books?category_id=${item.id}`}>{item.name}</Link>
+              <li key={item.category_id}>
+                <Link to={item.category_id === null ? `/books` : `/books?category_id=${item.category_id}`}>
+                  {item.category_name}
+                </Link>
               </li>
             );
           })}
@@ -69,10 +42,10 @@ function Header() {
             </Link>
           </li>
           <li>
-            <a href="/signup">
+            <Link to="/signup">
               <FaRegUser />
               회원가입
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

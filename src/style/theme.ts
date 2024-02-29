@@ -9,14 +9,6 @@ export type LayoutWidth = 'large' | 'medium' | 'small';
 interface Theme {
   name: ThemeName;
   color: Record<ColorKey, string>;
-  // color: {
-  //   // 방법 1.
-  //   // [key in ColorKey]: string;
-  //   // 방법 2.
-  //   // primary: string;
-  //   // background: string;
-  //   // secondary?: string;
-  // };
 
   heading: {
     [key in HeadingSize]: {
