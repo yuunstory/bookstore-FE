@@ -28,13 +28,18 @@ function Login() {
   } = useForm<SignupProps>();
 
   const onSubmit = (data: SignupProps) => {
-    login(data).then((res) => {
-      // 상태 변화
-      storeLogin(res.token);
+    login(data).then(
+      (res) => {
+        // 상태 변화
+        storeLogin(res.token);
 
-      showAlert('로그인이 완료되었습니다.');
-      navigate('/');
-    });
+        showAlert('로그인이 완료되었습니다.');
+        navigate('/');
+      },
+      (error) => {
+        showAlert('이메일 또는 비밀번호가 틀렸습니다.');
+      }
+    );
   };
 
   return (
