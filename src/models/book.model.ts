@@ -7,14 +7,13 @@ export interface Book {
   category_id: number;
   form: string;
   author: string;
-  isbn: number;
+  isbn: string;
   pages: number;
   summary: string;
   detail: string;
   contents: string;
   price: number;
   likes: number;
-  liked: boolean;
   pubDate: string;
 }
 
