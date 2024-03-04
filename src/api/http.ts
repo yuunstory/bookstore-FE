@@ -21,11 +21,18 @@ export const createClient = (config?: AxiosRequestConfig) => {
       return response;
     },
     (error) => {
-      // 로그인 만료 처리
-      if (error.response.status === 401) {
-        removetoken();
-        window.location.href = '/login';
-        return;
+      if (error.response) {
+        // 로그인 만료 처리
+        if (error.response.status === 401) {
+          removetoken();
+          window.location.href = '/login';
+          return;
+        }
+        return Promise.reject(error.response);
+      } else if (error.request) {
+        console.error('서버 응답 없음:', error.request);
+      } else {
+        console.error('요청 설정 오류:', error.message);
       }
       return Promise.reject(error);
     }

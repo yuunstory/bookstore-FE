@@ -35,7 +35,9 @@ const BookItemStyle = styled.div`
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 
   .img {
+    height: 25vw;
     overflow: hidden;
+    padding: 15px;
 
     img {
       max-width: 100%;
