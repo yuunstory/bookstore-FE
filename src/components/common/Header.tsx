@@ -23,7 +23,6 @@ function Header() {
       <nav className="category">
         <ul>
           {category.map((item) => {
-            console.log(item);
             return (
               <li key={item.category_id}>
                 <Link to={item.category_id === null ? `/books` : `/books?category_id=${item.category_id}`}>

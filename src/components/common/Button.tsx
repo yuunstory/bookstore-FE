@@ -7,11 +7,12 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   scheme: ButtonScheme;
   disabled?: boolean;
   isLoading?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-function Button({ children, size, scheme, disabled, isLoading }: Props) {
+function Button({ onClick, children, size, scheme, disabled, isLoading }: Props) {
   return (
-    <ButtonStyle size={size} scheme={scheme} disabled={disabled} isLoading={isLoading}>
+    <ButtonStyle size={size} scheme={scheme} disabled={disabled} isLoading={isLoading} onClick={onClick}>
       {children}
     </ButtonStyle>
   );

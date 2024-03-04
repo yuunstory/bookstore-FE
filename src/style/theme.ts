@@ -79,7 +79,7 @@ export const light: Theme = {
   buttonScheme: {
     primary: {
       color: 'white',
-      backgroundColor: 'midnightblue',
+      backgroundColor: '#FE7100',
     },
     normal: {
       color: 'black',
