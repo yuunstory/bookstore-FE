@@ -19,8 +19,6 @@ function BooksFilter() {
     setSearchParams(newSearchParams);
   };
 
-  const currentCategory = searchParams.get('category_id');
-
   return (
     <BooksFilterStyle>
       <div className="category">
@@ -28,7 +26,7 @@ function BooksFilter() {
           return (
             <Button
               size="medium"
-              scheme={currentCategory === item.category_id?.toString() ? 'primary' : 'normal'}
+              scheme={item.isActive ? 'primary' : 'normal'}
               key={item.category_id}
               onClick={() => handleCategory(item.category_id)}
             >
