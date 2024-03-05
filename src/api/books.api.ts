@@ -25,7 +25,7 @@ export const fetchBooks = async (params: FetchBooksParams) => {
     return {
       books: [],
       pagination: {
-        totalCount: 0,
+        totalBooksCount: 0,
         currentPage: 1,
       },
     };
