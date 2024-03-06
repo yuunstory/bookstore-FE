@@ -1,5 +1,3 @@
-import { StringLiteral } from 'typescript';
-
 export interface Book {
   id: number;
   title: string;
@@ -14,10 +12,10 @@ export interface Book {
   contents: string;
   price: number;
   likes: number;
-  pubDate: string;
+  pub_date: string;
 }
 
 export interface BookDetail extends Book {
-  categoryName: string;
+  category_name: string;
   liked: boolean;
 }
