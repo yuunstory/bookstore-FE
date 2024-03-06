@@ -8,6 +8,7 @@ import { formatDate, formatNumber } from '../utils/format';
 import { Link } from 'react-router-dom';
 import Button from '../components/common/Button';
 import EllipsisBox from '../components/common/EllipsisBox';
+import LikeButton from '../components/book/LikeButton';
 
 const bookInfoList = [
   {
@@ -47,9 +48,8 @@ const bookInfoList = [
 
 function BookDetail() {
   const { bookId } = useParams();
-  const { book } = useBook(bookId);
+  const { book, likeToggle } = useBook(bookId);
 
-  console.log(book);
   if (!book) return null;
 
   return (
@@ -74,7 +74,9 @@ function BookDetail() {
 
           <p className="summary">{book.summary}</p>
 
-          <div className="like">라이크</div>
+          <div className="like">
+            <LikeButton book={book} onClick={likeToggle} />
+          </div>
           <div className="add-cart">장바구니 넣기</div>
         </div>
       </header>
