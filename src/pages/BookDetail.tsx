@@ -6,6 +6,8 @@ import Title from '../components/common/Title';
 import { BookDetail as IBookDetail } from '../models/book.model';
 import { formatDate, formatNumber } from '../utils/format';
 import { Link } from 'react-router-dom';
+import Button from '../components/common/Button';
+import EllipsisBox from '../components/common/EllipsisBox';
 
 const bookInfoList = [
   {
@@ -76,7 +78,12 @@ function BookDetail() {
           <div className="add-cart">장바구니 넣기</div>
         </div>
       </header>
-      <div className="content"></div>
+      <div className="content">
+        <Title size="medium">상세 설명</Title>
+        <EllipsisBox linelimit={4}>{book.detail}</EllipsisBox>
+        <Title size="medium">목차</Title>
+        <p className="index">{book.contents}</p>
+      </div>
     </BookDetailStyle>
   );
 }
@@ -114,6 +121,9 @@ const BookDetailStyle = styled.div`
         }
       }
     }
+  }
+
+  .content {
   }
 `;
 
