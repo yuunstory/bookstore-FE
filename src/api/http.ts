@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { getToken, removetoken } from '../store/authStore';
 
 const BASE_URL = 'http://localhost:1225';
-const DEFAULT_TIMEOUT = 30000;
+const DEFAULT_TIMEOUT = 60000;
 
 export const createClient = (config?: AxiosRequestConfig) => {
   const axiosInstance = axios.create({
@@ -18,23 +18,19 @@ export const createClient = (config?: AxiosRequestConfig) => {
 
   axiosInstance.interceptors.response.use(
     (response) => {
+      console.log(response);
       return response;
     },
     (error) => {
-      if (error.response) {
-        // 로그인 만료 처리
-        if (error.response.status === 401) {
-          removetoken();
-          window.location.href = '/login';
-          return;
-        }
-        return Promise.reject(error.response);
-      } else if (error.request) {
-        console.error('서버 응답 없음:', error.request);
-      } else {
-        console.error('요청 설정 오류:', error.message);
+      console.log(error.response.status);
+      // 로그인 만료 처리
+      if (error.response.status === 401) {
+        removetoken();
+        // alert('로그인이 필요한 페이지입니다.');
+        window.location.href = '/login';
+        return;
       }
-      return Promise.reject(error);
+      return Promise.reject(error.response);
     }
   );
 

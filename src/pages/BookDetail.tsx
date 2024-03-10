@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import Button from '../components/common/Button';
 import EllipsisBox from '../components/common/EllipsisBox';
 import LikeButton from '../components/book/LikeButton';
+import AddToCart from '../components/book/AddToCart';
 
 const bookInfoList = [
   {
@@ -77,7 +78,9 @@ function BookDetail() {
           <div className="like">
             <LikeButton book={book} onClick={likeToggle} />
           </div>
-          <div className="add-cart">장바구니 넣기</div>
+          <div className="add-cart">
+            <AddToCart book={book} />
+          </div>
         </div>
       </header>
       <div className="content">
@@ -102,7 +105,7 @@ const BookDetailStyle = styled.div`
       text-align: center;
 
       img {
-        width: 60%;
+        width: 70%;
         height: auto;
       }
     }
@@ -112,6 +115,7 @@ const BookDetailStyle = styled.div`
       display: flex;
       flex-direction: column;
       gap: 12px;
+      padding: 0 20px;
 
       dl {
         display: flex;
