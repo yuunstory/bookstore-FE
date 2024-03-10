@@ -9,9 +9,11 @@ import CartSummary from '../components/cart/CartSummary';
 import Button from '../components/common/Button';
 import { useAlert } from '../hooks/useAlert';
 import { OrderSheet } from '../models/order.model';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
-  const { showAlert } = useAlert();
+  const { showAlert, showConfirm } = useAlert();
+  const navigate = useNavigate();
 
   const { carts, deleteCartItem, isEmpty } = useCart();
   const [checkedItems, setCheckedItems] = useState<number[]>([]);
@@ -62,7 +64,10 @@ function Cart() {
       totalQuantity,
       firstBookTitle: carts[0].title,
     };
-    console.log(orderData);
+
+    showConfirm('주문하시겠습니까?', () => {
+      navigate('/orders', { state: orderData });
+    });
   };
 
   return (
