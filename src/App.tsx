@@ -64,7 +64,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/carts',
+    path: '/cart',
     element: (
       <Layout>
         <Cart />
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/orders',
+    path: '/order',
     element: (
       <Layout>
         <Order />

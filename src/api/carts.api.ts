@@ -35,7 +35,6 @@ export const deleteCart = async (cartId: number) => {
     return response.data;
   } catch (error) {
     console.log(`선택한 장바구니 아이템 삭제 중 오류 : ${error}`);
-
     return;
   }
 };

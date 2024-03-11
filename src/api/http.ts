@@ -26,7 +26,7 @@ export const createClient = (config?: AxiosRequestConfig) => {
       // 로그인 만료 처리
       if (error.response.status === 401) {
         removetoken();
-        // alert('로그인이 필요한 페이지입니다.');
+        // window.alert('로그인이 필요한 페이지입니다.');
         window.location.href = '/login';
         return;
       }
