@@ -8,8 +8,6 @@ import React from 'react';
 function OrderList() {
   const { orders, selectedItemId, selectOrderItem } = useOrders();
 
-  console.log(orders);
-
   return (
     <>
       <Title size="large">주문 내역</Title>
