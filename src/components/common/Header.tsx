@@ -24,9 +24,9 @@ function Header() {
         <ul>
           {category.map((item) => {
             return (
-              <li key={item.category_id}>
-                <Link to={item.category_id === null ? `/books` : `/books?category_id=${item.category_id}`}>
-                  {item.category_name}
+              <li key={item.categoryId}>
+                <Link to={item.categoryId === null ? `/books` : `/books?category_id=${item.categoryId}`}>
+                  {item.categoryName}
                 </Link>
               </li>
             );
@@ -41,7 +41,7 @@ function Header() {
               <Link to="/cart">장바구니</Link>
             </li>
             <li>
-              <Link to="/order">주문 내역</Link>
+              <Link to="/orderlist">주문 내역</Link>
             </li>
             <li>
               <button onClick={storeLogout}>로그아웃</button>

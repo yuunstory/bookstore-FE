@@ -39,10 +39,10 @@ function BooksFilter() {
             <Button
               size="medium"
               scheme={item.isActive ? 'primary' : 'normal'}
-              key={item.category_id}
-              onClick={() => handleCategory(item.category_id)}
+              key={item.categoryId}
+              onClick={() => handleCategory(item.categoryId)}
             >
-              {item.category_name}
+              {item.categoryName}
             </Button>
           );
         })}
